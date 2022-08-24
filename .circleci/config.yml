@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Test frontend 
           command: |
-            cd frontend
+            cd newsily
             npm install 
             npm test 
 
