@@ -1,0 +1,45 @@
+.dashboard {
+    background-color: grey;
+    padding: 5px;
+}
+.dashboard-body{
+    padding: 10px;
+    background-color: rgb(212, 212, 212);
+    /* background-image: url(https://image.shutterstock.com/image-vector/old-newspaper-vintage-design-retro-600w-485390749.jpg); */
+}
+.subscription-list{
+    width: 100%;
+}
+.dashboard-bodys{
+    padding-top: 10px;
+}
+.sub-body{
+    border-radius: 0px;
+    background-color: transparent;
+    backdrop-filter: blur(5px)
+}
+.btn-align{
+    float: right;
+    padding: 10px;
+    width: 100%;
+}
+.navbar-text{
+    padding-right: 25px;
+    padding-left: 25px;
+    color: #000000 !important;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.logout-btn{
+    color: #000000 !important;
+    font-weight: bold;
+    border: 3px solid #000000;
+    border-radius: 6px;
+}
+.logout-btn:hover{
+    color: #000000 !important;
+    font-weight: bold;
+    border: 3px solid #000000;
+    border-radius: 6px;
+    background-color: #F5F1E6;
+}

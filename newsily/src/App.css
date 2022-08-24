@@ -1,0 +1,249 @@
+body{
+  background-color: #F5F1E6;
+  color: black;
+}
+
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.form-inputs{
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.form-wrapper{
+  padding-top: 10px;
+}
+
+.btn-input{
+  font-size: 12px;
+  color: white;
+  width: 400px;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.welcome-heading{
+  font-size: 35px;
+  /* color: white; */
+  font-weight: bold;
+}
+
+.navbar-heading{
+  font-size: 35px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: white!important;
+  font-weight: bold;
+}
+
+.have-account{
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.login-link{
+  border: 3px solid #1E1D23;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.login-link-text{
+  color: #1E1D23;
+}
+
+a.login-link-text:hover{
+  color: white;
+}
+
+.navbar-container{
+  padding-right: 100px;
+  padding-left: 100px;
+}
+.subscriptions-heading{
+  padding: 50px;
+  text-align: center;
+  font-size: 56px;
+  font-family: "Gelasio";
+  font-weight: bold;
+}
+
+.no-subscriptions{
+  text-align: center;
+}
+
+.card-button{
+  margin-top: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.card-subscription-logo{
+  border: 2px solid red;
+}
+
+.todayBtn{
+  position: absolute;
+  bottom: 40%;   
+  left: 35px;
+  /* background-color: #ffffff; */
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.todayBtn img {
+  width: 100px;
+  height: 90px;
+}
+
+.img-thumbnail{
+  background-color: none;
+    border: none;
+    border-radius:none;
+}
+
+.darkBtn, .lightBtn{
+  border-radius: 10px;
+}
+
+.lightBtn{
+  border: 4px solid #000;
+  background: none;
+  color: #000;
+  /* width: 70px; */
+  margin-right: 10px;
+}
+
+.lightBtn:hover{
+  background-color: #e1e1e1;
+  color: #000;
+  border: 4px solid #000;
+} 
+
+.btnContainer{
+  margin: 10px 5px
+}
+
+.footer-links{
+  font-family: Gelasio;
+  font-style: normal;
+  text-align: right;
+  letter-spacing: -0.015em;
+  text-decoration-line: underline;
+  color: #1E1D23;
+}
+
+.footer-links a {
+  color: black;
+}
+
+.badge-body{
+  padding: 5px;
+  margin-right: 15px;
+}
+
+.badge-section-body{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.explore-section{
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.footer-style{
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+}
+
+.explore-btn{
+  padding-top: 40px;
+}
+
+.explore{
+  padding-top: 20px;
+  font-size: 50px;
+}
+
+.explore-div{
+  padding-top: 30px;
+}
+
+/* .exploreee{
+  margin-bottom: 50px;
+} */
+
+.section-one{
+  padding-top: 60px;
+  padding-bottom: 90px;
+}
+
+.card-section{
+  padding-top: 50px;
+}
+
+.explore-btn-btn{
+  color: #FFF;
+  background-color: #1E1D23;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 8px;
+}
+
+.explore-btn-btn:hover{
+  color: #FFF;
+  background-color: #1E1D23;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-decoration-line: none;
+}
+
+.explore-btn-btn:active{
+  color: #FFF;
+  background-color: #1E1D23;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 8px;
+}
+
+.footer-container{
+  padding-left: 20rem;
+  padding-right: 20rem;
+  margin-top: 60px;
+  background-color: #1E1D23;
+}
+
+.btn-explore-img{
+  background-color: #F5F1E6;
+  border-color: #F5F1E6;
+}
+
+.btn-explore-img:hover{
+  background-color: #F5F1E6;
+  border-color: #F5F1E6;
+}
+
+.btn-explore-img:active{
+  background-color: #F5F1E6;
+  border-color: #F5F1E6;
+}
+
+.text-uppercase{
+  text-transform: uppercase;
+}
+.general-badge{
+  background-color: #EFD9CC;
+}

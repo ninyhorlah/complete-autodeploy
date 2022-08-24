@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  build-frontend:
+    docker:
+      - image: cimg/node
+    steps:
+      - checkout
+      - run:
+          name: build frontend
+          command: |
+            cd newsily
+            npm install
+            npm run build
+
+workflows:
+  complete-autodeploy:
+    jobs:
+      - build-frontend
