@@ -62,7 +62,7 @@ jobs:
             cd newsily
             ls
             npm install 
-            sudo dockerd
+            sudo service docker start
             docker run --rm -i hadolint/hadolint < Dockerfile
       # - run:
       #     name: scan frontend with hadolint
@@ -100,7 +100,7 @@ jobs:
 
             cd ./newsily-backend
             ls 
-            sudo dockerd
+            sudo service docker start
             docker run --rm -i hadolint/hadolint < Dockerfile
       # - run:
       #     name: Scan backend with hadolint 
