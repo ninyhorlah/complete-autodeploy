@@ -25,10 +25,36 @@ jobs:
           keys: [frontend-build]
       - run:
           name: Test frontend 
+          shell: /bin/bash
           command: |
             cd newsily
             npm install 
             npm test 
+
+  scan-frontend:
+    docker:
+      - image: cimg/node:14.4.0
+    steps:
+      - checkout 
+      - restore_cache:
+          keys: [frontend-build]
+      - run:
+          name: scan frontend with hadolint
+          command: |
+            cd newsily
+            npm install 
+            docker run --rm -i hadolint/hadolint < Dockerfile
+
+  scan-backend:
+    docker:
+      - image: 
+    steps:
+      - checkout
+    run:
+      name: Scan backend with hadolint 
+      command: |
+        cd newsily-backend
+        docker run --rm -i hadolint/hadolint < Dockerfile
 
 
 workflows:
@@ -37,3 +63,5 @@ workflows:
       - build-frontend
       - test-frontend:
           requires: [build-frontend]
+      - scan-frontend
+      - scan-backend
