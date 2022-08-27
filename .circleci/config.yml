@@ -47,7 +47,7 @@ jobs:
 
   scan-backend:
     docker:
-      - image: 
+      - image: cimg/python:3.9.4
     steps:
       - checkout
     run:
