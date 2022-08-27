@@ -50,11 +50,11 @@ jobs:
       - image: cimg/python:3.9.4
     steps:
       - checkout
-    run:
-      name: Scan backend with hadolint 
-      command: |
-        cd newsily-backend
-        docker run --rm -i hadolint/hadolint < Dockerfile
+      - run:
+          name: Scan backend with hadolint 
+          command: |
+            cd newsily-backend
+            docker run --rm -i hadolint/hadolint < Dockerfile
 
 
 workflows:
