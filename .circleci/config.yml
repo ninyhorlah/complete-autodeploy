@@ -42,6 +42,7 @@ jobs:
           name: scan frontend with hadolint
           command: |
             cd newsily
+            ls
             npm install 
             docker run --rm -i hadolint/hadolint < /newsily/Dockerfile
 
