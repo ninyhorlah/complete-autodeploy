@@ -44,7 +44,7 @@ jobs:
             cd newsily
             ls
             npm install 
-            docker run --rm -i hadolint/hadolint < /newsily/Dockerfile
+            docker run --rm -i hadolint/hadolint < Dockerfile
 
   scan-backend:
     docker:
@@ -56,7 +56,7 @@ jobs:
           command: |
             cd ./newsily-backend
             ls 
-            docker run --rm -i hadolint/hadolint < ./newsily-backend/Dockerfile
+            docker run --rm -i hadolint/hadolint < Dockerfile
 
 
 workflows:
