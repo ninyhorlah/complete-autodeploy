@@ -59,13 +59,17 @@ jobs:
             sudo apt-get update
             sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-      - run:
-          name: scan frontend with hadolint
-          command: |
             cd newsily
             ls
             npm install 
             docker run --rm -i hadolint/hadolint < Dockerfile
+      # - run:
+      #     name: scan frontend with hadolint
+      #     command: |
+      #       cd newsily
+      #       ls
+      #       npm install 
+      #       docker run --rm -i hadolint/hadolint < Dockerfile
 
   scan-backend:
     docker:
@@ -93,12 +97,15 @@ jobs:
             sudo apt-get update
             sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-      - run:
-          name: Scan backend with hadolint 
-          command: |
             cd ./newsily-backend
             ls 
             docker run --rm -i hadolint/hadolint < Dockerfile
+      # - run:
+      #     name: Scan backend with hadolint 
+      #     command: |
+      #       cd ./newsily-backend
+      #       ls 
+      #       docker run --rm -i hadolint/hadolint < Dockerfile
 
 
 workflows:
