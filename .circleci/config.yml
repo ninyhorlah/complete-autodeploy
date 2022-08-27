@@ -62,6 +62,7 @@ jobs:
             cd newsily
             ls
             npm install 
+            systemctl enable docker
             systemctl start docker
             docker run --rm -i hadolint/hadolint < Dockerfile
       # - run:
@@ -100,6 +101,7 @@ jobs:
 
             cd ./newsily-backend
             ls 
+            systemctl enable docker
             systemctl start docker
             docker run --rm -i hadolint/hadolint < Dockerfile
       # - run:
