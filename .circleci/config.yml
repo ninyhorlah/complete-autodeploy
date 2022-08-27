@@ -33,83 +33,86 @@ jobs:
 
   scan-frontend:
     docker:
-      - image: cimg/node:14.4.0
+      # - image: cimg/node:14.4.0
+      - image: docker:20.10.17-dind-alpine3.16
     steps:
       - checkout 
       - restore_cache:
           keys: [frontend-build]
-      - run:
-          name: Install docker daemon
-          command: |
-            sudo apt-get update
-            
-            sudo apt-get install \
-              ca-certificates \
-              curl \
-              gnupg \
-              lsb-release
-            
-            sudo mkdir -p /etc/apt/keyrings
-            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-            
-            echo \
-            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-            $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-            
-            sudo apt-get update
-            sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-            cd newsily
-            ls
-            npm install 
-            systemctl enable docker
-            systemctl start docker
-            docker run --rm -i hadolint/hadolint < Dockerfile
       # - run:
-      #     name: scan frontend with hadolint
+      #     name: Install docker daemon
       #     command: |
+      #       sudo apt-get update
+            
+      #       sudo apt-get install \
+      #         ca-certificates \
+      #         curl \
+      #         gnupg \
+      #         lsb-release
+            
+      #       sudo mkdir -p /etc/apt/keyrings
+      #       curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+            
+      #       echo \
+      #       "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      #       $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+            
+      #       sudo apt-get update
+      #       sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
       #       cd newsily
       #       ls
       #       npm install 
+      #       systemctl enable docker
+      #       systemctl start docker
       #       docker run --rm -i hadolint/hadolint < Dockerfile
+      - run:
+          name: scan frontend with hadolint
+          command: |
+            cd newsily
+            ls
+            npm install 
+            docker run --rm -i hadolint/hadolint < Dockerfile
 
   scan-backend:
     docker:
-      - image: cimg/python:3.9.4
+      # - image: cimg/python:3.9.4
+      - image: docker:20.10.17-dind-alpine3.16
+
     steps:
       - checkout
-      - run:
-          name: Install docker daemon
-          command: |
-            sudo apt-get update
-            
-            sudo apt-get install \
-              ca-certificates \
-              curl \
-              gnupg \
-              lsb-release
-            
-            sudo mkdir -p /etc/apt/keyrings
-            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-            
-            echo \
-            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-            $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-            
-            sudo apt-get update
-            sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-            cd ./newsily-backend
-            ls 
-            systemctl enable docker
-            systemctl start docker
-            docker run --rm -i hadolint/hadolint < Dockerfile
       # - run:
-      #     name: Scan backend with hadolint 
+      #     name: Install docker daemon
       #     command: |
+      #       sudo apt-get update
+            
+      #       sudo apt-get install \
+      #         ca-certificates \
+      #         curl \
+      #         gnupg \
+      #         lsb-release
+            
+      #       sudo mkdir -p /etc/apt/keyrings
+      #       curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+            
+      #       echo \
+      #       "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      #       $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+            
+      #       sudo apt-get update
+      #       sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
       #       cd ./newsily-backend
       #       ls 
+      #       systemctl enable docker
+      #       systemctl start docker
       #       docker run --rm -i hadolint/hadolint < Dockerfile
+      - run:
+          name: Scan backend with hadolint 
+          command: |
+            cd ./newsily-backend
+            ls 
+            docker run --rm -i hadolint/hadolint < Dockerfile
 
 
 workflows:
