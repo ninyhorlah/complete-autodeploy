@@ -33,7 +33,7 @@ jobs:
 
   scan-frontend:
     docker:
-      - image: cimg/node:14.4.0
+      - image: cimg/python:3.9.4
     steps:
       - checkout 
       - restore_cache:
@@ -66,19 +66,25 @@ jobs:
       #       systemctl start docker
       #       docker run --rm -i hadolint/hadolint < Dockerfile
       - run:
+          name: Install dependencies 
+          command: |
+            cd ./newsily
+            apk add --update curl nodejs npm
+            curl -sSL https://get.haskellstack.org/ | sh
+            git clone https://github.com/hadolint/hadolint \
+            && cd hadolint \
+            && stack install
+      - run:
           name: scan frontend with hadolint
           command: |
             cd newsily
             ls
             npm install 
-            git clone https://github.com/hadolint/hadolint \
-            && cd hadolint \
-            && stack install
+            hadolint Dockerfile
 
   scan-backend:
     docker:
       - image: cimg/python:3.9.4
-
     steps:
       - checkout
       # - run:
@@ -108,13 +114,19 @@ jobs:
       #       systemctl start docker
       #       docker run --rm -i hadolint/hadolint < Dockerfile
       - run:
+          name: Install dependencies 
+          command: |
+            cd ./newsily-backend
+            apk add --update curl nodejs npm
+            curl -sSL https://get.haskellstack.org/ | sh
+            git clone https://github.com/hadolint/hadolint \
+            && cd hadolint \
+            && stack install
+      - run:
           name: Scan backend with hadolint 
           command: |
             cd ./newsily-backend
             ls 
-            git clone https://github.com/hadolint/hadolint \
-            && cd hadolint \
-            && stack install
             hadolint Dockerfile
 
 
