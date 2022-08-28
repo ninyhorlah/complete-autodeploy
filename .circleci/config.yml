@@ -69,7 +69,7 @@ jobs:
           name: Install dependencies 
           command: |
             cd ./newsily
-            apk add --update curl nodejs npm
+            apk add --update curl nodejs npm git
             curl -sSL https://get.haskellstack.org/ | sh
             git clone https://github.com/hadolint/hadolint \
             && cd hadolint \
@@ -117,7 +117,7 @@ jobs:
           name: Install dependencies 
           command: |
             cd ./newsily-backend
-            apk add --update curl nodejs npm
+            apk add --update curl nodejs npm git
             curl -sSL https://get.haskellstack.org/ | sh
             git clone https://github.com/hadolint/hadolint \
             && cd hadolint \
