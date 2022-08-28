@@ -33,7 +33,7 @@ jobs:
 
   scan-frontend:
     docker:
-      - image: cimg/python:3.9.4
+      - image: python:3.7-alpine3.16
     steps:
       - checkout 
       - restore_cache:
@@ -84,7 +84,7 @@ jobs:
 
   scan-backend:
     docker:
-      - image: cimg/python:3.9.4
+      - image: python:3.7-alpine3.16
     steps:
       - checkout
       # - run:
